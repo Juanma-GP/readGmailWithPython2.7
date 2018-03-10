@@ -7,9 +7,6 @@ import email, getpass
 # import emails #'My own dictionary for acount and pw'
 # from emails import dicCorreos,dicContras
 
-
-#sys.setdefaultencoding('utf-8')
-
 def get_text(self, email_message_instance):
     maintype = email_message_instance.get_content_maintype()
     if maintype == 'multipart':
@@ -34,9 +31,7 @@ def get_mail(lista_data):
         #        pass
         mensaje = get_text('',list_data[i])
         print 'Titulo: ',list_data[i]['Subject']
-        #if list_data[i].get_content_maintype()=='multipart':
         print 'Mensaje: ',mensaje
-        '''save_attachfile(list_data[i])'''
         for part in correoElectronico.walk():
             if part.get_content_maintype=='multipart':
                 continue
@@ -56,7 +51,7 @@ if __name__=="__main__":
     userName = raw_input('Enter your GMail username: \n\t')
     passwd = getpass.getpass('Enter your password: \n\t')    
     mail = imaplib.IMAP4_SSL('imap.gmail.com')
-    mail.login(dicCorreos['correo3'],dicContras['contra3'])
+    mail.login(userName,passwd)
     mail.list()
     mail.select("inbox")
     result,data = mail.search(None,"ALL")
