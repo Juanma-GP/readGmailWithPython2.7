@@ -4,7 +4,7 @@ import os
 import sys
 import imaplib
 import email, getpass
-# import emails 'My own dictionary for acount and pw'
+# import emails #'My own dictionary for acount and pw'
 # from emails import dicCorreos,dicContras
 
 
